@@ -28,6 +28,10 @@ namespace PUG.Modules
             EmbedBuilder builder = new EmbedBuilder();
 
             builder.Title = "List of all PUG Bot Commands";
+            builder.Description = $"[Invite PUG Bot to your Discord server!]({ _config["botInviteLink"]})";
+            builder.Author = new EmbedAuthorBuilder().WithName("PUG Bot").WithIconUrl(Context.Client.CurrentUser.GetAvatarUrl() ?? Context.Client.CurrentUser.GetDefaultAvatarUrl());
+            builder.Footer = new EmbedFooterBuilder().WithText("Developed by Munch");
+            builder.Timestamp = DateTime.Now;
             builder.Color = Colors.Info;
 
             foreach (var command in _commands.Commands.OrderBy(c => c.Name))
